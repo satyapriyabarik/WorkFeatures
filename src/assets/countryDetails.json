@@ -1,0 +1,33 @@
+[{
+  "name":"India",
+  "states":[
+            {"name":"Andhra Pradesh",
+             "cities":["Visakhapatnam","Vijaywada","Vijay Nagaram","Tuni","Samalkot"]
+            },
+            {"name":"Arunachal Pradesh",
+             "cities":["Tawang","Itanagar","Ziro","Bomdila","Pasighat","Bhalukpong"]
+            },
+            {"name":"Assam",
+             "cities":["Diburgarh","Guwahati","Kokrajhar"]
+            }
+            ] ,
+    "capital":"New Delhi" ,
+    "countryStdcode":"+91"       
+},
+{
+  "name":"Bangladesh",
+  "states":[
+            {"name":"Dhaka",
+             "cities":["Bogra","Kushtia","Jessore","Cox's Bazar"]
+            },
+            {"name":"Chittagong",
+             "cities":["Brahmanbaria","Dinajpur","Nawabganj"]
+            },
+            {"name":"Khulana",
+             "cities":["Tangail","Sirajganj","Feni"]
+            }
+            ] ,
+    "capital":"Dhaka" ,
+    "countryStdcode":"+880"       
+}
+]

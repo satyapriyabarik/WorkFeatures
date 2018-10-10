@@ -1,0 +1,73 @@
+
+.caption{color:grey;}
+.caption p{margin:5px 0px 5px;}
+.matricOutWrapper .col-lg-1,.matricOutWrapper .col-lg-3,.matricOutWrapper .col-lg-6{border:0.3px solid silver;}
+.matricOutWrapper .col-md-1,.matricOutWrapper .col-md-3,.matricOutWrapper .col-md-6{border:0.3px solid silver;}
+.matricOutWrapper .col-sm-1,.matricOutWrapper .col-sm-3,.matricOutWrapper .col-sm-6{border:0.3px solid silver;}
+.matricOutWrapper .col-xs-1,.matricOutWrapper .col-xs-3,.matricOutWrapper .col-xs-6{border:0.3px solid silver;}
+
+.matricinnerWrapper .col-lg-1,.matricinnerWrapper .col-lg-3,.matricinnerWrapper .col-lg-6{border:0.3px solid silver;height: 98px;}
+.matricinnerWrapper .col-md-1,.matricinnerWrapper .col-md-3,.matricinnerWrapper .col-md-6{border:0.3px solid silver;height: 98px;}
+.matricinnerWrapper .col-sm-1,.matricinnerWrapper .col-sm-3,.matricinnerWrapper .col-sm-6{border:0.3px solid silver;height: 98px;}
+.matricinnerWrapper .col-xs-1,.matricinnerWrapper .col-xs-3,.matricinnerWrapper .col-xs-6{border:0.3px solid silver;height: 98px;}
+
+
+.mail i{color:burlywood;}
+.metricsBox{
+     display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: row; /* Safari 6.1+ */
+    display: flex;
+    flex-direction:row;
+    padding:0px;
+}
+.mbox{height:1%;overflow-y:scroll;}
+.groupWrapper{background-color:gray;color:#FFF;padding:8px;}
+.mbox .row:nth-child(even){background-color:#F6F6F6}
+.metric{width:12.5%;margin:0px;text-align:center;color:grey;height:100%}
+.metric .glyphicon-circle-arrow-up{color:yellowgreen;font-size:1.2em;padding: 2px;}
+.metric .glyphicon-circle-arrow-down{color:red;font-size:1.2em;padding: 2px;}
+.metric .glyphicon-minus-sign{color:grey;font-size:1.2em;padding: 2px;}
+.qualityBoxwrap,.safetyBoxwrap,.recommendBoxwrap{
+    padding:0px;
+    }
+ .qualityBox,.safetyBox{width:50%;text-align:center;color:grey;float:left;height:98px;}  
+ .qualityBox:nth-child(1),.safetyBox:nth-child(1),.recommendBox:not(:nth-child(4)){border-right:1px solid silver;} 
+ .assignedVal{margin-top:40%;color:deepskyblue}
+ .recommendBox{text-align:center;color:grey;float:left;padding:0px 6px;height:98px;}
+  .recommendBox .glyphicon-ok-sign{color:green;font-size:1.5em;padding: 2px;}
+
+
+  .red{fill:red;stroke-width:1}
+  .yellow{fill:orange;stroke-width:1}
+  .green{fill:limegreen;stroke-width:1}
+  .blue{fill:blue;stroke-width:1}
+@media screen and (min-width: 320px) {
+      
+  }
+  @media screen and (max-width: 320px) {
+     .metric{width:100%;} 
+  }
+  @media screen and (min-width: 360px) {
+      
+  }
+  @media screen and (max-width: 360px) {
+      
+  }
+  @media screen and (min-width: 375px) {
+      
+  }
+  @media screen and (max-width: 375px) {
+      .metric{width:87.3px;}
+  }
+  @media screen and (min-width: 384px) {
+      
+  }
+  @media screen and (max-width: 384px) {
+      
+  }
+  @media screen and (min-width: 768px) {
+      
+  }
+  @media screen and (max-width: 768px) {
+      
+  }

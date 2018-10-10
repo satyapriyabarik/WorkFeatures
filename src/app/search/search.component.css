@@ -1,0 +1,16 @@
+.searchWrap{padding:10px 10px 0px 10px; background: #F3F3F3; background: linear-gradient(to right, #F3F3F3,white,white);}
+.ofcperiod{text-align:right;}
+.input-searchfield{padding-left:20px;}
+.field-group{position:relative;margin-left:5%;}
+.field-group .fa-search{position:absolute;top:25%;left:4%;color:silver;} 
+.tview{display:none}
+@media screen and (max-width: 600px) {
+   .field-group,.ofcperiod{display:none;} 
+}
+@media screen and (max-width: 768px) {
+   .dview{display:none;}
+   .tview{display:inline-block}
+   .selectBox{margin-left:5px;}
+   .field-group .fa-search{left:10%;} 
+   .input-searchfield{margin-left:7px;}
+}

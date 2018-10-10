@@ -1,0 +1,23 @@
+.invalid-feedback{color:red;padding:7px;background:#DDD;}
+.RegisterAds{text-shadow:3px 2px 3px lawngreen; 
+-webkit-animation: rounded 10s infinite; /* Safari 4.0 - 8.0 */
+    animation: rounded 10s infinite; 
+    background:#ddd;
+    color:chocolate;
+    position:relative;
+    left:40px;
+    top:0px;
+   text-align:center;
+   border-radius:50%;
+   height:50px;
+   padding-top:-30px;
+    }
+@keyframes rounded{
+    0%   {top: 0px; left: -40px; background: red;color:#FFF;}
+    25%  {top: 30px; left: 40px; background: blue;color:orange}
+    50%  {top: 160px; left: -40px; background: yellow;color:red}
+    75%  {top: 200px; left: 40px; background: green;color:#FFF}
+    100% {top: 0px; left: -40px; background: red;color:green}
+}
+.countrycode{display: inline-flex;border:1px solid silver;padding:1.4% 1%;position:absolute;width:10%;z-index:9;background-color:#DDD;}
+#mobileNo{width:91%;margin-left:9%}

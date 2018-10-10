@@ -1,0 +1,108 @@
+<div class="jumbotron">
+  <section class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+      <form [formGroup]="eform" (ngSubmit)="onSubmit()">
+        <fieldset>
+          <legend>Registration Form:</legend>
+        <div class="form-group">
+            <input placeholder="First Name" type="text" class="form-control" formControlName="firstName" [ngClass]="{'is-valid':submitted && f.firstName.errors}" />
+              <div *ngIf="submitted &&  f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name field is Mandatory</div>
+              </div>
+        </div> 
+        <div class="form-group">
+            <input placeholder="Last Name" type="text" class="form-control" formControlName="lastName" [ngClass]="{'is-valid':submitted && f.lastName.errors}" />
+              <div *ngIf="submitted &&  f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name field is Mandatory</div>
+              </div>
+        </div> 
+          <div class="form-group">
+            <input placeholder="Email Id" type="email" class="form-control" formControlName="email" [ngClass]="{'is-valid':submitted && f.email.errors}">
+            <div *ngIf="submitted &&  f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email Id is Mandatory</div>
+                <div *ngIf="f.email.errors.email">Invalid Email Id</div>
+              </div>
+          </div>
+          <div class="form-group">
+            <input placeholder="Password" type="password" class="form-control" formControlName="password" [ngClass]="{'is-valid':submitted && f.password.errors}">
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback" minLength="6">
+              <div *ngIf="f.password.errors.required">Password field is Mandatory</div>
+              <div *ngIf="f.password.errors.minlength">Minimum 6 characters password</div>
+            </div>
+          </div>
+           <div class="form-group">
+            <input placeholder="Confirm Password" type="password" class="form-control" formControlName="cpassword" [ngClass]="{'is-valid':submitted && f.cpassword.errors}">
+            <div *ngIf="submitted && f.cpassword.errors" class="invalid-feedback">
+              <div *ngIf="f.cpassword.errors.required">Confirm Your Password</div>
+              <div *ngIf="f.cpassword.errors.MatchPassword">Password not match</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <select class="form-control" formControlName="countryName" (change)="changeCountry($event.target.value)" [ngClass]="{'is-valid':submitted && f.countryName.errors}">
+              <option value="">Select Country</option>
+              <option *ngFor="let country of cntries" value="{{country.name}}">{{country.name}}</option>
+            </select>
+            <div *ngIf="submitted && f.countryName.errors" class="invalid-feedback">
+              <div *ngIf="f.countryName.errors.required">Select Country</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <select  class="form-control" formControlName="stateName" (change)="changeStates($event.target.value)" [ngClass]="{'is-valid':submitted && f.stateName.errors}">
+              <option value="" [selected]=true [disabled]="true">Select State</option>
+              <option *ngFor="let st of states" value="{{st.name}}">{{st.name}}</option>
+            </select>
+            <div *ngIf="submitted && f.stateName.errors" class="invalid-feedback">
+              <div *ngIf="f.stateName.errors.required">Select State</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <select (change)="changeCity($event.target.value)" class="form-control" formControlName="cityName" [ngClass]="{'is-valid':submitted && f.cityName.errors}">
+              <option value="" [selected]=true [disabled]="true">Select City</option>
+              <option *ngFor="let city of allcities" value="{{city}}">{{city}}</option>
+              <option value="Others">Others</option>
+            </select>
+             <input *ngIf="exceptionCity" placeholder="Type your City" type="text" class="form-control"  formControlName="typeCity" [ngClass]="{'is-valid':submitted && f.typeCity.errors}">
+             <div *ngIf="submitted && f.cityName.errors" class="invalid-feedback">
+              <div *ngIf="f.cityName.errors.required">Select City</div>
+            </div>
+             <div *ngIf="submitted && f.typeCity.errors" class="invalid-feedback">
+                <div *ngIf="f.typeCity.errors.required">Please Enter your city</div>    
+             </div>
+          </div>
+         <div class="form-group">
+           <span class="countrycode">{{stdcode}}</span><input placeholder="Mobile No" type="text" class="form-control" maxlength="10" id ="mobileNo" formControlName="mobileNo" [ngClass]="{'is-valid':submitted && f.mobileNo.errors}">
+            <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback" maxlength="10" >
+              <div *ngIf="f.mobileNo.errors.required">Mobile no field is Mandatory</div>
+              <div *ngIf="f.mobileNo.errors.minlength">Enter 10 digit mobile no</div>
+              <div *ngIf="f.mobileNo.errors.maxlength">Enter 10 digit mobile no</div>
+              <div *ngIf="f.mobileNo.errors.pattern">Please enter numeric value</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Full Address" type="text" class="form-control"  formControlName="fullAddress" [ngClass]="{'is-valid':submitted && f.fullAddress.errors}"></textarea>
+           <div *ngIf="submitted && f.fullAddress.errors" class="invalid-feedback">
+              <div *ngIf="f.fullAddress.errors.required">Address field is Mandatory</div>
+           </div>
+           </div>
+          <div class="form-group">
+            <input placeholder="Zip Code" type="text" class="form-control" maxlength="6" formControlName="zipCode" [ngClass]="{'is-valid':submitted && f.zipCode.errors}">
+            <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback" maxlength="6">
+              <div *ngIf="f.zipCode.errors.required">Zipcode field is Mandatory</div>
+              <div *ngIf="f.zipCode.errors.minlength">Enter 6 digit Zip code</div>
+              <div *ngIf="f.zipCode.errors.maxlength">Enter 6 digit Zip code</div>
+              <div *ngIf="f.zipCode.errors.pattern">Please enter numeric value</div>
+            </div>
+          </div>
+          <div class="form-group"><input type="submit" [disabled]="loading" value="Register" class="btn btn-primary"/></div>
+        </fieldset>
+      </form>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="container">
+          <h3 class="RegisterAds">{{submitmsg}}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

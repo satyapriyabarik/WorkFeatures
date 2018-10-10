@@ -1,0 +1,19 @@
+<div class="row searchWrap" *ngFor="let allyc of youcouchfromparent">
+  <div class="col-lg-4 col-xs-12 col-sm-5 col-md-5 form-group">
+    <div class="row">
+          <div class="col-lg-3 col-xs-3 col-sm-3 col-md-4" style="text-align:left;background-color:#F2F2F2;padding:7px"><strong>Dashboard</strong></div>
+          <div class="col-lg-5 col-xs-9 col-sm-5 col-md-4" style="text-align:left"><select width="100%" class="form-control selectBox"><option>My Dashboard</option></select></div>
+          <div class="col-lg-4 col-xs-0 col-sm-4 col-md-4">
+            <div class="field-group"> 
+            <i class="fa fa-search"></i>
+            <input style="width:80%" type="text"   class="input-searchfield form-control">
+           </div>
+          </div>
+    </div>
+  </div>
+  <div class="col-lg-5 col-xs-12 col-sm-4 col-md-4 row">
+    <div class="col-lg-8 col-xs-6 col-sm-6 col-md-6" style="padding:7px"><span class="dview">Recommendations Status Complete: </span><span class="tview">Complete: </span><span>{{allyc.completePercent}}</span>%</div>
+    <div class="col-lg-4 col-xs-6 col-sm-6 col-md-6" style="padding:7px"><span>Approved: </span><span>{{allyc.approvedPercent}}</span>%</div>
+    </div>
+  <div class="col-lg-3 col-xs-0 col-sm-3 col-md-3" class="ofcperiod" style="padding:7px"><span>Official Period:   </span><span>{{allyc.officialPeriod}}</span></div>
+</div>

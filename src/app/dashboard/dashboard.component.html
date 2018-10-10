@@ -1,0 +1,152 @@
+<app-search [youcouchfromparent]="ydatafromparent"></app-search>
+<div class="matricOutWrapper">
+<div class="row caption">
+  <div class="col-lg-1 col-sm-3 col-xs-12">
+    <p style="text-align:left;padding-left:7px">Name</p>
+  </div>
+  <div class="col-lg-6 col-sm-9 col-xs-12">
+     <p style="text-align:center">Level 1 Metrics</p>
+   </div>
+   <div class="col-lg-1 col-sm-3 col-xs-6">
+     <p style="text-align:center">Quality</p>
+  </div>
+  <div class="col-lg-1 col-sm-3 col-xs-6">
+     <p style="text-align:center">Safety</p>
+  </div>
+  <div class="col-lg-3 col-sm-4 col-xs-12">  
+     <p style="text-align:center">Recommendations Status</p>
+  </div>
+</div>
+<div class="row matricinnerWrapper" *ngFor="let ydf of ydatafromparent">
+  <div class="row" *ngFor="let metric of ydf.matricGroup; let i=index;">
+  <div class="row">
+    <div class="col-lg-12" class="groupWrapper"><span>Metric Group Name:</span> <span>{{metric.groupName}}</span></div>
+  </div>
+ <div class="mbox">   
+<div class="row" *ngFor="let cm of ydf.matricGroup[i].groupDetails; let j=index">
+  
+  <div class="col-lg-1 col-sm-2 col-xs-12" style="text-align:left;padding-left:7px">
+      <div><a href="{{cm.profileUrl}}">{{cm.technicianName}}</a></div>
+     <div><span>{{cm.technicianId}}</span></div>
+     <div><table width="100%"><tr><td width="35%"><span class="profileImage"><img src="{{cm.profileImage}}"/></span></td><td><span class="mail"><a href="mailto:{{cm.techMailid}}"><i class="fa fa-envelope"></i></a></span></td></tr></table></div>
+    </div>
+  <div class="col-lg-6 col-sm-10 col-xs-12">
+            <div class="row">
+              <a routerLink="behavior/{{cm.technicianId}}">
+            <div class="col-lg-1 col-sm-1 col-xs-3 metric"  *ngFor="let mtr of cm.level1Metrics let k=index" >
+            <div *ngFor="let m of mtr.label">
+                 <div>{{m.name}}</div>
+                  <div><i [ngClass]="{
+                      'glyphicon-circle-arrow-up':m.growthFlag == 'up',
+                      'glyphicon-minus-sign':m.growthFlag == 'negative',
+                      'glyphicon-circle-arrow-down':m.growthFlag == 'down'
+                      
+                                    }" class="glyphicon">&nbsp;</i> <span>{{m.rate | number : '1.2-2'}}</span>
+                                    </div>
+                                    <div>
+                                      <svg width="70px" height="50px">
+                                        <g  *ngFor="let graph of m.performance">
+                                     <g *ngFor="let gr of graph.p1"><rect width="3" x="10" height="100" [attr.y]="gr.prate" [ngClass]="{
+                                    'red':gr.prate <= 10,
+                                    'green':gr.prate > 10 && gr.prate <= 20,
+                                    'yellow':gr.prate >20 && gr.prate <= 30,
+                                    'blue':gr.prate >30 && gr.prate <=40
+                      
+                                    }" class="bar"
+                                        />
+                                       </g>
+                                       <g *ngFor="let gr of graph.p2"><rect width="3" x="20" height="100" [attr.y]="gr.prate" [ngClass]="{
+                                    'red':gr.prate <= 10,
+                                    'green':gr.prate > 10 && gr.prate <= 20,
+                                    'yellow':gr.prate >20 && gr.prate <= 30,
+                                    'blue':gr.prate >30 && gr.prate <=40
+
+                                    }" class="bar" /></g>
+                                       <g *ngFor="let gr of graph.p3"><rect width="3" x="30" height="100" [attr.y]="gr.prate" [ngClass]="{
+                                    'red':gr.prate <= 10,
+                                    'green':gr.prate > 10 && gr.prate <= 20,
+                                    'yellow':gr.prate >20 && gr.prate <= 30,
+                                    'blue':gr.prate >30 && gr.prate <=40
+
+                                    }" class="bar" /></g>
+                                       <g *ngFor="let gr of graph.p4"><rect width="3" x="40" height="100"  [attr.y]="gr.prate" [ngClass]="{
+                                    'red':gr.prate <= 10,
+                                    'green':gr.prate > 10 && gr.prate <= 20,
+                                    'yellow':gr.prate >20 && gr.prate <= 30,
+                                    'blue':gr.prate >30 && gr.prate <=40
+
+                                    }" class="bar" /></g>
+                                       <g *ngFor="let gr of graph.p5"><rect width="3" x="50" height="100" [attr.y]="gr.prate" [ngClass]="{
+                                    'red':gr.prate <= 10,
+                                    'green':gr.prate > 10 && gr.prate <= 20,
+                                    'yellow':gr.prate >20 && gr.prate <= 30,
+                                    'blue':gr.prate >30 && gr.prate <=40
+
+                                    }" class="bar" /></g>
+                                       <g *ngFor="let gr of graph.p6"><rect width="3" x="60" height="100" [attr.y]="gr.prate" [ngClass]="{
+                                    'red':gr.prate <= 10,
+                                    'green':gr.prate > 10 && gr.prate <= 20,
+                                    'yellow':gr.prate >20 && gr.prate <= 30,
+                                    'blue':gr.prate >30 && gr.prate <=40
+                                    
+                                    }" class="bar"/></g>
+                                      </g>
+                                      </svg>
+                                    </div>
+                                  </div> 
+              </div> </a>
+              </div>
+ 
+  </div>
+  <div class="col-lg-1 col-sm-3 col-xs-12">
+     <div class="qualityBox">
+          <div>Dev</div>
+          <div class="assignedVal">{{cm.quality[0].dev}}</div>
+        </div>
+        <div class="qualityBox">
+          <div>Obs</div>
+          <div class="assignedVal">{{cm.quality[0].obs}}</div>
+        </div>
+        <div class="clearfix"></div>
+  </div>
+  <div class="col-lg-1 col-sm-3 col-xs-12">
+    <div class="safetyBox">
+          <div>Dev</div>
+          <div class="assignedVal">{{cm.safety[0].dev}}</div>
+        </div>
+        <div class="safetyBox">
+          <div>Obs</div>
+          <div class="assignedVal">{{cm.safety[0].obs}}</div>
+        </div>
+        <div class="clearfix"></div>
+  </div>
+  <div class="col-lg-3 col-sm-6 col-xs-12">
+    <div class="recommendBox">
+          <div>Pending</div>
+          <div class="assignedVal">{{cm.recommendationStatus[0].pending}}</div>
+        </div>
+        <div class="recommendBox">
+          <div>Complete</div>
+          <div class="assignedVal">{{cm.recommendationStatus[0].complete}}</div>
+        </div>
+        <div class="recommendBox">
+          <div>% Complete</div>
+          <div class="assignedVal">{{cm.recommendationStatus[0].rcompletepercent}}</div>
+        </div>
+        <div class="recommendBox">
+          <div>Approved</div>
+          <div class="assignedVal">
+            <i [ngClass]="{
+                      'glyphicon-ok-sign':cm.recommendationStatus[0].approved == 'yes'
+                      
+                                    }" class="glyphicon"  (click)="sendval($event)" data-status="cm.recommendationStatus[0].approved">&nbsp;</i></div>
+        </div>
+        <div class="clearfix"></div>
+  </div>
+         
+ </div>
+ </div>
+</div>
+</div>
+
+</div>
